@@ -13,11 +13,11 @@ for (let i = 0; i < holes.length; i++) {
   //loop thru
   holes[i].onclick = WhackedMole
   //we dont want cell to be clicked on we want the cell with mole image inside to be it
-  //bind on click to cells, maybe need it to just be on cell that mole pops up in
+  //bind on click to cells, maybe need it to just be on cell that mole pops up in?
 }
 
 //show the mole
-function showMoleRND(holes) {
+function showMoleRND() {
   //random cell selector
   let randomIndex = Math.floor(Math.random() * 24)
   let randomCell = holes[randomIndex]
@@ -26,7 +26,6 @@ function showMoleRND(holes) {
   //now gotta append the img of the mole to the random cell selected
   img.src = './mole.PNG'
   img.id = 'moleImg'
-
   randomCell.appendChild(img) //appended
   //problems..
   //big ass mole appearing on the bottom of page not in hole
