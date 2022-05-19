@@ -3,43 +3,32 @@
 // -    -   -   -   -  //
 
 console.log('Inflate The Unicorn!')
-console.log('Inflate The Unicorn!')
 //VARIABLES (store these as an object?) how would that look like? unicorns={
-//unicorn1 = Nikola
-//unicorn2 = Kristaps
-//unicorn3 = Poku}
 
-//need to store different states within each unicorn and show the changes.
-//maybe store each level in an inflation array thingy
+// assigned each given HTML tag to a variable, each variable ='s a unicorn  below
+let uni0 = document.getElementById('uni0')
+let uni1 = document.getElementById('uni1')
+let uni2 = document.getElementById('uni2')
 
-//use on.click to call
-let unicorns = document.getElementsByClassName('inflate-an-image')
+let inflation = [0, 0, 0]
 
-let unicornClicked = (u) => {
-  let newUnicorn = u.target
-  if (newUnicorn.src.match('./images/unicorn-0.png')) {
-    newUnicorn.src = './images/unicorn-1.png'
-  } else if (newUnicorn.src.match('./images/unicorn-1.png')) {
-    newUnicorn.src = './images/unicorn-2.png'
-  } else if (newUnicorn.src.match('./images/unicorn-2.png')) {
-    newUnicorn.src = './images/unicorn-3.png'
-  } else if (newUnicorn.src.match('./images/unicorn-3.png')) {
-    alert('Unicorn' + +'Says TY')
+//when Unicorn is clicked the click function is run, idk if its called too tho
+uni0.onclick = clicked
+uni1.onclick = clicked
+uni2.onclick = clicked
+//this function is the what happens when a unicorn isclicked
+function clicked(e) {
+  // making a variable where the unicorn we click on is the even target
+  var unicorn = event.target
+  //this is for the concatenation where the fourth spot in the array eg [0,0,0,X,0] is targeted and susceptible to change
+  let id = unicorn.id[3]
+  //inflates or changes to the next pic once on click
+  inflation[id]++
+  //sets and maintains the bounds
+  if (inflation[id] == 4) {
+    inflation[id] = 0
+    alert(unicorn.id + ' says thanks!')
   }
+  //the path concatenaterd to allow multiple changes in one line
+  unicorn.src = './images/unicorn-' + inflation[id] + '.png'
 }
-//write a function that gets called on every click of the unicorn
-for (let i = 0; i < unicorns.length; i++) {
-  unicorns[i].onclick = unicornClicked
-}
-
-//test clicker is clicking on dev tools and make sure its registering
-
-//now, when an image is clicked a function should change the image to the next image up.
-
-//look up how to change an HTML image on JS
-
-//make an array to keep track of which unicorn is on which picture
-
-//make unicorn variables, uni1-uni2-uni3
-
-//once a unicorn has cycled thru all states have an alet that says which unicorn says thanks
